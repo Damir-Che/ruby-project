@@ -1,0 +1,10 @@
+<h1>Статьи</h1>
+<hr> <br><br>
+
+<% @posts.each do |post| %>
+
+  <h2><%= link_to post.title, post_path(post) %></h2>
+  <p><%= post.body %></p>
+
+
+<% end %>

@@ -1,0 +1,4 @@
+<h1>Редактирование статьи</h1>
+<%= form_for @post, url: current_user_post_path(@post) do |f| %>
+ <%= render 'form', form: f %>
+<% end %>

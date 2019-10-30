@@ -13,28 +13,31 @@
 
   <nav class="navbar navbar-expand-lg navbar-gray bg-gray" style="background: dimgray">
 
+    <%= link_to 'Все статьи', posts_path, class: 'btn btn-info'%>
+    <%= link_to 'Новая статья', new_current_user_post_path, class: 'btn btn-info ml-3'%>
+    <%= link_to 'Мои статьи', current_user_posts_path, class: 'btn btn-info ml-3'%>
 
-      <form class="identification-form form-inline my-2 my-lg-0 pull-right">
+    <ul class="navbar-nav ml-auto">
 
-          <% if user_signed_in? %>
-            <span>Здравствуйте, <%= current_user.email %></span>
-            <%= link_to 'Выйти', destroy_user_session_path, :method => :delete, class: 'btn btn-primary' %>
-          <% else %>
-            <%= link_to 'Войти', new_user_session_path, class: 'mr-2 btn btn-primary' %>
-            <%= link_to 'Зарегистрироваться', new_user_registration_path, class: 'btn btn-primary'%>
-          <% end %>
+      <% if user_signed_in? %>
+        <li class="nav-item">
+          <%= link_to 'Выйти', destroy_user_session_path, :method => :delete, class: 'btn btn-primary' %>
+        </li>
+      <% else %>
+        <li class="nav-item">
+          <%= link_to 'Войти', new_user_session_path, class: 'mr-2 btn btn-primary' %>
+        </li>
+        <li class="nav-item">
+          <%= link_to 'Зарегистрироваться', new_user_registration_path, class: 'btn btn-primary'%>
+        </li>
+      <% end %>
 
-      </form>
+    </ul>
   </nav>
-
-
+  <div class="container">
     <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
-
-    <div class="container">
-      <%= yield %>
-    </div>
-
-
+    <%= yield %>
+  </div>
   </body>
 </html>

@@ -1,0 +1,6 @@
+<h1>Мои статьи</h1>
+<hr> <br><br>
+<% @posts.each do |post| %>
+<h2><%= link_to post.title, current_user_post_path(post) %></h2>
+  <p><%= post.body %></p>
+<% end %>

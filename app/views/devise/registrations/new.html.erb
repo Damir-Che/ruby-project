@@ -1,29 +1,37 @@
-<h2>Sign up</h2>
+<div class="identification">
 
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-  <%= render "devise/shared/error_messages", resource: resource %>
+  <h2 class="ml-5">Sign up</h2>
 
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-  </div>
+  <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+    <%= render "devise/shared/error_messages", resource: resource %>
 
-  <div class="field">
-    <%= f.label :password %>
-    <% if @minimum_password_length %>
-    <em>(<%= @minimum_password_length %> characters minimum)</em>
-    <% end %><br />
-    <%= f.password_field :password, autocomplete: "new-password" %>
-  </div>
+    <div class="field pl-5">
+      <%= f.label :email %><br />
+      <%= f.email_field :email, autofocus: true, autocomplete: "email", class: 'form-control width_puts_to_identification', maxlength: 20 %>
+    </div>
 
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
-  </div>
+    <div class="pas field pl-5">
+      <%= f.label :password %>
 
-  <div class="actions">
-    <%= f.submit "Sign up" %>
-  </div>
-<% end %>
+      <span class="ml-4">
+        <% if @minimum_password_length %>
+         <em>(<%= @minimum_password_length %> characters minimum)</em>
+        <% end %><br />
+      </span>
 
-<%= render "devise/shared/links" %>
+      <%= f.password_field :password, autocomplete: "new-password", class: 'form-control width_puts_to_identification', maxlength: 20 %>
+    </div>
+
+    <div class="field  pl-5">
+      <%= f.label :password_confirmation %><br />
+      <%= f.password_field :password_confirmation, autocomplete: "new-password", class: 'form-control width_puts_to_identification', maxlength: 20 %>
+    </div>
+
+    <div class="actions pl-5 pt-3">
+      <%= f.submit "Sign up", class: 'btn btn-primary' %>
+    </div>
+  <% end %>
+
+  <%= render "devise/shared/links" %>
+
+</div>
