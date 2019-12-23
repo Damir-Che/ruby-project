@@ -14,7 +14,6 @@ module CurrentUser
 
     def create
       @post = Post.new(post_params.merge(user_id:current_user.id))
-      # Post.new(title: 'ttt', body: 'bbbb', user_id: 4)
       @post.save
       if @post.save
         redirect_to current_user_post_path(@post)

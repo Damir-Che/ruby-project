@@ -1,4 +1,4 @@
 <%= render 'partials/post' %>
 
-<%= link_to 'Изменить', edit_current_user_post_path(@post)  %>
-<%= link_to 'Удалить ', current_user_post_path(@post),method: :delete, data: { confirm: 'Вы уверены?'}  %>
+<%= link_to 'Изменить', edit_current_user_post_path(@post), class: 'change_button'  %>
+<%= link_to 'Удалить ', current_user_post_path(@post),method: :delete, data: { confirm: 'Вы уверены?'},class: 'delete_button ml-2'  %>

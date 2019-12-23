@@ -1,6 +1,15 @@
 <h1>Мои статьи</h1>
 <hr> <br><br>
 <% @posts.each do |post| %>
-<h2><%= link_to post.title, current_user_post_path(post) %></h2>
-  <p><%= post.body %></p>
+<!--<h2><%= link_to post.title, current_user_post_path(post) %></h2>-->
+  <!--<p><%= post.body %></p>-->
+
+  <div class="card m-2">
+    <div class="card-body link">
+      <h2 class="card-title "><%= link_to post.title, current_user_post_path(post), class: 'link_a ' %></h2>
+      <p class="card-text text_post"><%= post.body %></p>
+    </div>
+  </div>
+  <br>
 <% end %>
+

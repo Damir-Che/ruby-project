@@ -7,37 +7,56 @@
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
   </head>
 
   <body>
 
-  <nav class="navbar navbar-expand-lg navbar-gray bg-gray" style="background: dimgray">
+  <nav class="navbar navbar-expand-lg navbar-info bg-info fixed-top" style="background: dimgray">
 
-    <%= link_to 'Все статьи', posts_path, class: 'btn btn-info'%>
-    <%= link_to 'Новая статья', new_current_user_post_path, class: 'btn btn-info ml-3'%>
-    <%= link_to 'Мои статьи', current_user_posts_path, class: 'btn btn-info ml-3'%>
+    <div class="container_all_posts p-2">
+      <%= link_to 'Все статьи', posts_path, class: 'all_posts'%>
+    </div>
+
+    <div class="container_all_posts p-2 ml-3">
+      <%= link_to 'Новая статья', new_current_user_post_path, class: 'all_posts'%>
+    </div>
+
+    <div class="container_all_posts p-2 ml-3">
+      <%= link_to 'Мои статьи', current_user_posts_path, class: 'all_posts'%>
+    </div>
+
+
 
     <ul class="navbar-nav ml-auto">
 
       <% if user_signed_in? %>
-        <li class="nav-item">
-          <%= link_to 'Выйти', destroy_user_session_path, :method => :delete, class: 'btn btn-primary' %>
+        <li class="nav-item container_all_posts">
+          <%= link_to 'Выйти', destroy_user_session_path, :method => :delete, class: 'all_posts mr-5' %>
         </li>
       <% else %>
-        <li class="nav-item">
-          <%= link_to 'Войти', new_user_session_path, class: 'mr-2 btn btn-primary' %>
+        <li class="nav-item container_all_posts">
+          <%= link_to 'Войти', new_user_session_path, class: 'mr-4 all_posts' %>
         </li>
-        <li class="nav-item">
-          <%= link_to 'Зарегистрироваться', new_user_registration_path, class: 'btn btn-primary'%>
+        <li class="nav-item container_all_posts">
+          <%= link_to 'Зарегистрироваться', new_user_registration_path, class: 'all_posts mr-2'%>
         </li>
       <% end %>
 
     </ul>
   </nav>
-  <div class="container">
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
-    <%= yield %>
-  </div>
+  <br> <br>
+
+    <div class="container ">
+
+      <h1 class="notice"><%= notice %></h1>
+      <p class="alert"><%= alert %></p>
+
+      <%= yield %>
+    </div>
+
+
+
+
   </body>
 </html>

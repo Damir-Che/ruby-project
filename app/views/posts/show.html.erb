@@ -1,19 +1,30 @@
 <%= render 'partials/post' %>
 
-<h2>Комментарии</h2>
-
 <%= form_for ([@post,Comment.new]) do |f| %>
 
-  <p>Текст комментария</p>
-  <%= f.text_area(:body) %>
 
-  <%= f.submit %>
-
-<% end %>
-
-<% @post.comments.each do |comment| %>
-
-  <p><%=comment.body%></p>
-  <p><%= comment.created_at.strftime("%H:%M:%S %d-%m-%Y") %></p>
+  <div class="card">
+    <div class="card-body">
+      <p class="card-title">Комментарий</p>
+      <p class="card-text"><%= f.text_area(:body) %></p>
+      <%= f.submit "Сохранить", class: 'btn btn-primary' %>
+    </div>
+  </div>
+  <br>
 
 <% end %>
+
+<div class="scroll_comments">
+  <% @post.comments.each do |comment| %>
+
+  <div class="card m-2">
+    <div class="card-body">
+      <p class="card-title"><%=comment.body%></p>
+      <p class="card-title"><%=comment.user_id%></p>
+      <p class="card-text"><%= comment.created_at.strftime("%H:%M:%S %d-%m-%Y") %></p>
+    </div>
+  </div>
+  <br>
+
+  <% end %>
+</div>
